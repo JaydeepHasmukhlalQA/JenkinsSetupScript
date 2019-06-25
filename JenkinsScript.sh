@@ -20,7 +20,7 @@ do
         case $userinput in
                 1)
 
-		echo "Would you like to install JDK/JRE?(y/n)"
+		echo "Would you like to install JDK/JRE? [y/n]"
 		read installjava
 
 		if [ $installjava = "y" ]
@@ -90,8 +90,8 @@ do
                 ;;
 
                 9)
-		exit
 		echo "Bye Bye"
+		exit
 		;;
 
         esac
