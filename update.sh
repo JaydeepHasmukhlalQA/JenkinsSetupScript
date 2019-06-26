@@ -1,3 +1,5 @@
+#!/bin/bash
+
 echo "Updating Jenkins \n"
 sudo systemctl stop jenkins
 sudo su - jenkins

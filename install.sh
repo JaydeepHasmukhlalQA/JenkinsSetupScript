@@ -1,3 +1,5 @@
+#!/bin/bash
+
 echo "Would you like to install JDK/JRE? [y/n]"
 read installjava
 

@@ -1,3 +1,5 @@
+#!/bin/bash
+
 echo "Removing Jenkins \n"
 sudo systemctl stop jenkins
 sudo systemctl disable jenkins
