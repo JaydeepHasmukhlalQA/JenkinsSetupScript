@@ -19,64 +19,28 @@ do
 
         case $userinput in
                 1)
-
-		echo "Would you like to install JDK/JRE? [y/n]"
-		read installjava
-
-		if [ $installjava = "y" ]
-		then
-			echo "Installing JDK/JRE"
-                	sudo apt install -y wget openjdk-8-jdk openjdk-8-jre
-		fi
-
-                echo "Creating Jenkins User"
-                sudo useradd --create-home jenkins
-                sudo usermod --shell /bin/bash jenkins
-
-                echo "Downloading Jenkins"
-                sudo wget http://updates.jenkins-ci.org/latest/jenkins.war
-		sudo mv ./jenkins.war /home/jenkins/jenkins.war
-
-                echo "Installing Jenkins Service Script"
-                sudo cp ./jenkins.service /etc/systemd/system/
-                sudo systemctl daemon-reload
-		echo "Finished Installing Jenkins"
-                ;;
+                ./install.sh ;;
 
 		2)
-		echo "Updating Jenkins"
-		sudo systemctl stop jenkins
-		sudo su - jenkins
-		sleep 5
-		sudo rm ./jenkins.war
-		sudo wget http://updates.jenkins-ci.org/latest/jenkins.war
-		sudo systemctl start jenkins
-		;;
+                ./update.sh ;;
 
 		3)
-		echo "Removing Jenkins"
-		sudo systemctl stop jenkins
-		sudo systemctl disable jenkins
-		sudo rm /etc/systemd/system/jenkins.service
-		sudo systemctl daemon-reload
-		sudo systemctl reset-failed
-		sudo userdel -r -f jenkins
-		;;
+                ./uninstall.sh ;;
 
                 4)
-                echo "Starting Jenkins"
+                echo "Starting Jenkins \n"
                 sudo systemctl start jenkins
                 ;;
 
                 5)
-                echo "Stopping Jenkins"
+                echo "Stopping Jenkins \n"
                 sudo systemctl stop jenkins
                 ;;
 
                 6)
                 echo "Restarting Jenkins..."
                 sudo systemctl restart jenkins
-                echo "Done"
+                echo "Done \n"
                 ;;
 
                 7)
@@ -90,7 +54,7 @@ do
                 ;;
 
                 9)
-		echo "Bye Bye"
+		echo "Cya \n"
 		exit
 		;;
 
