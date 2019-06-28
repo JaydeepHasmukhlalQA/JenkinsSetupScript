@@ -19,6 +19,7 @@ do
 
         case $userinput in
                 1)
+                ./install_plugins.sh
                 ./install.sh ;;
 
 		2)
@@ -28,19 +29,15 @@ do
                 ./uninstall.sh ;;
 
                 4)
-                echo "Starting Jenkins \n"
-                sudo systemctl start jenkins
-                ;;
+                ./start.sh ;;
 
                 5)
-                echo "Stopping Jenkins \n"
-                sudo systemctl stop jenkins
-                ;;
+                ./stop.sh ;;
 
                 6)
                 echo "Restarting Jenkins..."
                 sudo systemctl restart jenkins
-                echo "Done \n"
+                echo "Done"
                 ;;
 
                 7)
@@ -54,7 +51,7 @@ do
                 ;;
 
                 9)
-		echo "Cya \n"
+		echo "Cya"
 		exit
 		;;
 
