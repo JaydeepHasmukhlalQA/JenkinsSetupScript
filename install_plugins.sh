@@ -19,4 +19,3 @@ then
 	sudo apt install -y maven
 	sudo mvn -version
 fi
-
